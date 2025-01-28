@@ -13,7 +13,7 @@ protected:
     double Balance;
     double Limite; // 
     bool Status; // true = blocked, false = active
-    int essaisEchoues; // Tentatives échouees de connexion
+    int essaisEchoues; // Tentatives Ã©chouees de connexion
 
 public:
     // Constructeur
@@ -50,7 +50,7 @@ public:
                 essaisEchoues++;
                 if (essaisEchoues >= 3) {
                     Status = true; // Bloque le compte
-                    cout << "Compte bloque apres 3 tentatives échouees.\n";
+                    cout << "Compte bloque apres 3 tentatives Ã©chouees.\n";
                 } else {
                     cout << "PIN incorrect. Tentative " << essaisEchoues << "/3.\n";
                 }
@@ -92,7 +92,7 @@ public:
         }
     }
 
-    // Dépôt d'argent
+    // DÃ©pÃ´t d'argent
     void deposerArgent(double montant) {
         Balance += montant;
         cout << "Depot de " << montant << " Dh effectue avec succes.\n";
@@ -175,13 +175,13 @@ public:
                 }
                 case 3: {
                     string id;
-                    cout << "Entrez l'ID du compte à bloquer : ";
+                    cout << "Entrez l'ID du compte Ã  bloquer : ";
                     cin >> id;
                     bool trouve = false;
                     for (int i = 0; i < clients.size(); i++) {
                         if (clients[i].getID() == id) {
                             clients[i].setStatus(true);
-                            cout << "Compte bloqué avec succès.\n";
+                            cout << "Compte bloquÃ© avec succÃ¨s.\n";
                             trouve = true;
                             break;
                         }
@@ -191,14 +191,14 @@ public:
                 }
                 case 4: {
                     string id;
-                    cout << "Entrez l'ID du compte à débloquer : ";
+                    cout << "Entrez l'ID du compte Ã  dÃ©bloquer : ";
                     cin >> id;
                     bool trouve = false;
                     for (int i = 0; i < clients.size(); i++) {
                         if (clients[i].getID() == id) {
                             clients[i].setStatus(false);
                             clients[i].resetTentatives();
-                            cout << "Compte débloqué avec succès.\n";
+                            cout << "Compte dÃ©bloquÃ© avec succÃ¨s.\n";
                             trouve = true;
                             break;
                         }
@@ -215,7 +215,7 @@ public:
                 }
                 case 6: {
                     string id;
-                    cout << "Entrez l'ID de l'utilisateur à rechercher : ";
+                    cout << "Entrez l'ID de l'utilisateur Ã  rechercher : ";
                     cin >> id;
                     bool trouve = false;
                     for (int i = 0; i < clients.size(); i++) {
@@ -229,7 +229,7 @@ public:
                     break;
                 }
                 case 7:
-                    cout << "Déconnexion de l'administrateur...\n";
+                    cout << "DÃ©connexion de l'administrateur...\n";
                     break;
                 default:
                     cout << "Choix invalide.\n";
@@ -246,8 +246,8 @@ void afficherMenuUtilisateur(Client& client, vector<Client>& clients) {
         cout << "1. Voir mes informations\n";
         cout << "2. Voir mon solde\n";
         cout << "3. Retirer de l'argent\n";
-        cout << "4. Déposer de l'argent\n";
-        cout << "5. Transférer de l'argent\n";
+        cout << "4. DÃ©poser de l'argent\n";
+        cout << "5. TransfÃ©rer de l'argent\n";
         cout << "6. Quitter\n";
         cout << "Votre choix : ";
         cin >> choix;
@@ -261,14 +261,14 @@ void afficherMenuUtilisateur(Client& client, vector<Client>& clients) {
                 break;
             case 3: {
                 double montant;
-                cout << "Entrez le montant à retirer : ";
+                cout << "Entrez le montant Ã  retirer : ";
                 cin >> montant;
                 client.retirerArgent(montant);
                 break;
             }
             case 4: {
                 double montant;
-                cout << "Entrez le montant à déposer : ";
+                cout << "Entrez le montant Ã  dÃ©poser : ";
                 cin >> montant;
                 client.deposerArgent(montant);
                 break;
@@ -278,7 +278,7 @@ void afficherMenuUtilisateur(Client& client, vector<Client>& clients) {
                 double montant;
                 cout << "Entrez l'ID du destinataire : ";
                 cin >> idDestinataire;
-                cout << "Entrez le montant à transférer : ";
+                cout << "Entrez le montant Ã  transfÃ©rer : ";
                 cin >> montant;
 
                 bool transfertEffectue = false;
@@ -290,12 +290,12 @@ void afficherMenuUtilisateur(Client& client, vector<Client>& clients) {
                     }
                 }
                 if (!transfertEffectue) {
-                    cout << "ID du destinataire introuvable ou transfert échoué.\n";
+                    cout << "ID du destinataire introuvable ou transfert Ã©chouÃ©.\n";
                 }
                 break;
             }
             case 6:
-                cout << "Déconnexion...\n";
+                cout << "DÃ©connexion...\n";
                 break;
             default:
                 cout << "Choix invalide.\n";
